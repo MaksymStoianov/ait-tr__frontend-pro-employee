@@ -1,10 +1,15 @@
-import EmployeeForm from "components/EmployeeForm/EmployeeForm";
+import EmployeeForm from '../../components/EmployeeForm/EmployeeForm';
 
-function CreateEmployeePage() {
+const CreateEmployee: React.FC = () => {
+  const handleCreateEmployee = (data: { fullName: string; age: number; jobTitle: string }) => {
+    console.log('Employee created:', data);
+    
+  };
+
   return (
     <div>
       <h2>Create Employee</h2>
-      <EmployeeForm />
+      <EmployeeForm onCreate={handleCreateEmployee} />
     </div>
   );
 }
