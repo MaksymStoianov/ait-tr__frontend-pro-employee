@@ -6,6 +6,8 @@ export const FormContainer = styled.form`
 	padding: 20px;
 	margin: 20px;
 	position: relative;
+	width: 600px; // Уменьшить ширину контейнера, 
+	//или пусть он занимает 100% ширины экрана?
 
 	&:hover {
 		border-color: #0000ff;
@@ -44,4 +46,5 @@ export const FormFooter = styled.div`
 	justify-content: center;
 	padding-top: 20px;
 	box-sizing: border-box;
+	gap: 30px;
 `;
