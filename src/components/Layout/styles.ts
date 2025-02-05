@@ -1,52 +1,46 @@
-import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const LayoutComponent = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
+
 
 export const Header = styled.header`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	padding: 20px;
-	background-color: rebeccapurple;
-	color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #282c34;
 `;
-export const LogoContainer = styled.div`
-	width: 70px;
-	height: 70px;
-	background-color: white;
-	border-radius: 50%;
-	cursor: pointer;
-`;
+
 
 export const NavContainer = styled.nav`
-	display: flex;
-	gap: 15px;
+  display: flex;
+  gap: 20px;
 `;
 
-export const StyledNavLink = styled(NavLink)`
-	text-decoration: none;
-	font-size: 20px;
-	color: white;
+export const LogoContainer = styled.div`
+  cursor: pointer;
 `;
 
 export const Main = styled.main`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
+  flex-grow: 1;
+  padding: 20px;
 `;
 
 export const Footer = styled.footer`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	padding: 20px;
-	background-color: rebeccapurple;
-	color: white;
+  padding: 20px;
+  background-color: #282c34;
+  text-align: center;
+  color: white;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  color: white;
+  text-decoration: none;
+  &.active {
+    text-decoration: underline;
+  }
 `;

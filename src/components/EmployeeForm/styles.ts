@@ -1,28 +1,31 @@
-import styled from "@emotion/styled";
+import styled from 'styled-components';
 
 export const EmployeeFormContainer = styled.form`
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	width: 600px;
-	height: fit-content;
-	padding: 60px;
-	border: 2px solid;
-	border-radius: 4px;
-	background-color: white;
+  width: 590px;
+  max-width: 400px;
+  background: #f9f9f9;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  border: 3px dashed transparent;
+  border-radius: 2px;
 `;
 
 export const CheckboxContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 `;
 
 export const CheckboxLabel = styled.label`
-	font-size: 20px;
+  margin-left: 5px;
+  font-size: 16px;
 `;
 
 export const Checkbox = styled.input`
-	width: 25px;
-	height: 25px;
+  width: 20px;
+  height: 20px;
 `;

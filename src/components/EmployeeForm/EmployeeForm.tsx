@@ -1,83 +1,91 @@
-import Button from "components/Button/Button";
-import Input from "components/Input/Input";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { EmployeeFormContainer } from "./styles";
-import { EmployeeFormValues } from "./types";
+// import React from 'react';
+// import { useFormik } from 'formik';
+// import * as Yup from 'yup';
+// import { Checkbox, CheckboxContainer, CheckboxLabel, EmployeeFormContainer } from './styles';
+// import Input from '../Input/Input';
+// import Button from '../Button/Button';
 
-function EmployeeForm() {
-	const validationSchema = Yup.object().shape({
-		name: Yup.string()
-			.required("Required field")
-			.min(5, "Min 2 symbols")
-			.max(50, "Max 50 symbols"),
-		surname: Yup.string()
-			.required("Required field")
-			.min(5, "Min 2 symbols")
-			.max(50, "Max 50 symbols"),
-		age: Yup.number()
-			.required("Required field")
-			.min(18, "Min age 18")
-			.max(80, "Max age 80")
-			.typeError("Type number"),
-		jopPosition: Yup.string().max(30, "Max 30 symbols"),
-	});
+// interface EmployeeFormValues {
+//   fullName: string;
+//   age: number;
+//   jobTitle: string;
+//   agreement: boolean;
+// }
 
-	const formik = useFormik({
-		initialValues: {
-			name: "",
-			surname: "",
-			age: "",
-			jopPosition: "",
-		} as EmployeeFormValues,
-		validationSchema,
-		validateOnChange: false,
-		onSubmit: (values: EmployeeFormValues) => {
-			console.table(values);
-		},
-	});
+// const EmployeeForm: React.FC<{ onCreate: (data: EmployeeFormValues) => void }> = ({ onCreate }) => {
+//   const validationSchema = Yup.object().shape({
+//     fullName: Yup.string()
+//       .required('Required field')
+//       .min(5, 'Min 5 symbols')
+//       .max(50, 'Max 50 symbols'),
+//     age: Yup.number()
+//       .required('Required field')
+//       .min(18, 'Min age 18')
+//       .max(80, 'Max age 80')
+//       .typeError('Type number'),
+//     jobTitle: Yup.string()
+//       .max(30, 'Max 30 symbols'),
+//     agreement: Yup.boolean()
+//       .oneOf([true], 'Accept agreement')
+//   });
 
-	return (
-		<EmployeeFormContainer onSubmit={formik.handleSubmit}>
-			<Input
-				name="name"
-				id="name_id"
-				label="Name*"
-				placeholder="Enter your name"
-				value={formik.values.name}
-				onChange={formik.handleChange}
-				error={formik.errors.name}
-			/>
-			<Input
-				name="surname"
-				id="surname_id"
-				label="Surname*"
-				placeholder="Enter your surname"
-				value={formik.values.surname}
-				onChange={formik.handleChange}
-				error={formik.errors.surname}
-			/>
-			<Input
-				name="age"
-				id="age_id"
-				label="Age*"
-				placeholder="Enter your age"
-				value={formik.values.age}
-				onChange={formik.handleChange}
-				error={formik.errors.age}
-			/>
-			<Input
-				name="jop_position"
-				id="jop_position_id"
-				label="jop_position*"
-				placeholder="Enter your jop position"
-				value={formik.values.jopPosition}
-				onChange={formik.handleChange}
-				error={formik.errors.jopPosition}
-			/>
-			<Button name="CREATE" type="submit" />
-		</EmployeeFormContainer>
-	);
-}
+//   const formik = useFormik({
+//     initialValues: {
+//       fullName: '',
+//       age: '',
+//       jobTitle: '',
+//       agreement: false
+//     } as EmployeeFormValues,
+//     validationSchema,
+//     validateOnChange: false,
+//     onSubmit: (values: EmployeeFormValues) => {
+//       console.table(values);
+//       onCreate(values);
+//     }
+//   });
 
-export default EmployeeForm;
+//   return (
+//     <EmployeeFormContainer onSubmit={formik.handleSubmit}>
+//       <Input
+//         name='fullName'
+//         id='full_name_id'
+//         label='Full Name*'
+//         placeholder="Enter your full name"
+//         value={formik.values.fullName}
+//         onChange={formik.handleChange}
+//         error={formik.errors.fullName}
+//       />
+//       <Input
+//         name='age'
+//         id='age_id'
+//         label='Age*'
+//         placeholder="Enter your age"
+//         value={formik.values.age}
+//         onChange={formik.handleChange}
+//         error={formik.errors.age}
+//       />
+//       <Input
+//         name='jobTitle'
+//         id='job_title_id'
+//         label='Job Title'
+//         placeholder="Enter your job title"
+//         value={formik.values.jobTitle}
+//         onChange={formik.handleChange}
+//         error={formik.errors.jobTitle}
+//       />
+//       <CheckboxContainer>
+//         <Checkbox
+//           type='checkbox'
+//           id='agree_id'
+//           name='agreement'
+//           checked={formik.values.agreement}
+//           onChange={formik.handleChange}
+//         />
+//         <CheckboxLabel htmlFor="agree_id">I Agree</CheckboxLabel>
+//       </CheckboxContainer>
+//       <Button name='CREATE' type='submit' disabled={!formik.values.agreement} />
+//     </EmployeeFormContainer>
+//   );
+// }
+
+// export default EmployeeForm;
