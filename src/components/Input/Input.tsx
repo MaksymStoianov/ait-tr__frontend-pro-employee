@@ -21,6 +21,7 @@ function Input({
 				placeholder={placeholder}
 				value={value}
 				onChange={onChange}
+				hasError={!!error}
 			/>
 			{error && <ErrorMessage>{error}</ErrorMessage>}
 		</InputContainer>

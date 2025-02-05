@@ -1,15 +1,19 @@
-import { Home } from "./styles";
+import { StyledHome } from "./styles";
 
 function HomePage() {
-  return (
-    <div>
-      <h2>Create Employee</h2>
-      <Home>
-        Employees application. Projektentwickler: Maksym Stoianov, Tetiana Makharynets, Svitlana Held,
-        Yuliia Sydorenko
-      </Home>
-    </div>
-  );
+	return (
+		<StyledHome>
+			<h2>Create Employee</h2>
+			<p>Employees application.</p>
+			<p>Projektentwickler:</p>
+			<ul>
+				<li>Maksym Stoianov</li>
+				<li>Tetiana Makharynets</li>
+				<li>Svitlana Held</li>
+				<li>Yuliia Sydorenko</li>
+			</ul>
+		</StyledHome>
+	);
 }
 
 export default HomePage;

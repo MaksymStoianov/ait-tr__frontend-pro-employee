@@ -1,3 +1,4 @@
+import { EmployeeProvider } from "components/EmployeeContext/EmployeeContext";
 import { useNavigate } from "react-router-dom";
 import { navLinks } from "./navLinks";
 import {
@@ -31,7 +32,9 @@ function Layout({ children }: LayoutProps) {
 				<LogoContainer onClick={() => navigate("/")}>Home</LogoContainer>
 				<NavContainer>{navLinksEl}</NavContainer>
 			</Header>
-			<Main>{children}</Main>
+			<EmployeeProvider>
+				<Main>{children}</Main>
+			</EmployeeProvider>
 		</LayoutComponent>
 	);
 }

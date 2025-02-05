@@ -1,6 +1,5 @@
-export interface EmployeeFormValues {
-	name: string;
-	surname: string;
-	age: number;
-	jopPosition: string;
+import { Employee } from "components/EmployeeContext/types";
+
+export interface EmployeeFormProps {
+	onCreate: (data: Employee) => void;
 }

@@ -1,23 +1,20 @@
-import EmployeeCard from '../../components/EmployeeCard/EmployeeCard';
+import EmployeeCard from "components/EmployeeCard/EmployeeCard";
+import { useEmployees } from "components/EmployeeContext/EmployeeContext";
 
 function EmployeePage() {
-  const [employee, setEmployee] = useState<null | { fullName: string; age: number; jobTitle: string }>(null);
+	const { employees } = useEmployees();
 
-  const handleCreateEmployee = (data: { fullName: string; age: number; jobTitle: string }) => {
-    setEmployee(data);
-  };
+	// FIXME: Не уверен что правильно сделал key.
+	const employeesEl = employees.map((employee, i) => (
+		<EmployeeCard key={i + "-" + new Date().getTime()} {...employee} />
+	));
 
-  // TODO Вставить карточки цыклом map отобразить
-  return (
-    <div>
-		<h2>EmployeePage</h2>
-      {employee ? (
-        <EmployeeCard employee={employee} />
-      ) : (
-        <p>No employee created yet.</p>
-      )}
-    </div>
-  );
+	return (
+		<div>
+			<h2>Employee</h2>
+			{employees.length ? employeesEl : <p>No employee created yet.</p>}
+		</div>
+	);
 }
 
 export default EmployeePage;
