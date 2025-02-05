@@ -1,5 +1,5 @@
-function Employee() {
-	return <div></div>;
+function EmployeePage() {
+	return <div>Employee</div>;
 }
 
-export default Employee;
+export default EmployeePage;
