@@ -1,6 +1,6 @@
 import EmployeeForm from '../../components/EmployeeForm/EmployeeForm';
 
-const CreateEmployee: React.FC = () => {
+function CreateEmployeePage() {
   const handleCreateEmployee = (data: { fullName: string; age: number; jobTitle: string }) => {
     console.log('Employee created:', data);
     
