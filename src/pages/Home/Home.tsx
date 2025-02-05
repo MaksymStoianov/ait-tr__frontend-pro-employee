@@ -3,8 +3,8 @@ import { StyledHome } from "./styles";
 function HomePage() {
 	return (
 		<StyledHome>
-			<h2>Create Employee</h2>
-			<p>Employees application.</p>
+			<h1>Create Employee</h1>
+			<h2>Employees application.</h2>
 			<p>Projektentwickler:</p>
 			<ul>
 				<li>Maksym Stoianov</li>
