@@ -24,10 +24,14 @@ export function EmployeeProvider({ children }: EmployeeProviderProps) {
 		return setEmployees([...employees, employee]);
 	};
 
+	const removeEmployee = (id: string | number) => {
+		setEmployees(employees.filter(employee => employee.id !== id));
+	};
+
 	// Создать провайдер (обертка), которая позволит получить значение из контекста.
 	// Добавляем значение, к которому и необходим доступ.
 	return (
-		<EmployeeContext.Provider value={{ employees, addEmployee }}>
+		<EmployeeContext.Provider value={{ employees, addEmployee, removeEmployee }}>
 			{children}
 		</EmployeeContext.Provider>
 	);
