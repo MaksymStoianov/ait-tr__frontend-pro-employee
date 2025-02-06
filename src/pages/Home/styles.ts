@@ -17,11 +17,22 @@ export const StyledHome = styled.div`
 `;
 
 export const StyledH2 = styled.h2`
-	color: #222;
+	font-size: 2rem;
+  color: #0ca938;
+  font-weight: 600;
+  margin-bottom: 15px;
+`;
+
+export const StyledH1 = styled.h1`
+	font-size: 1.5rem;
+  color: #0ca938;
+  font-weight: 600;
+  margin-bottom: 15px;
 `;
 
 export const StyledP = styled.p`
-	color: #3498db;
+	color: #06433b;
 	text-align: center;
 	font-size: 1.2rem;
-`;
+	
+`
