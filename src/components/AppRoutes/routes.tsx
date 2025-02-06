@@ -1,6 +1,7 @@
 import CreateEmployeePage from "pages/CreateEmployee/CreateEmployee";
 import EmployeePage from "pages/Employee/Employee";
 import HomePage from "pages/Home/Home";
+import NotFoundPage from "pages/NotFoundPage/NotFoundPage";
 
 export const routes = [
 	{
@@ -14,5 +15,9 @@ export const routes = [
 	{
 		path: "/employee",
 		element: <EmployeePage />,
+	},
+	{
+		path: "*",
+		element: <NotFoundPage />,
 	},
 ];
