@@ -1,11 +1,11 @@
-import { StyledHome } from "./styles";
+import { StyledH2, StyledHome, StyledP } from "./styles";
 
 function HomePage() {
 	return (
 		<StyledHome>
 			<h1>Create Employee</h1>
-			<h2>Employees application.</h2>
-			<p>Projektentwickler:</p>
+			<StyledH2>Employees application.</StyledH2>
+			<StyledP>Projektentwickler:</StyledP>
 			<ul>
 				<li>Maksym Stoianov</li>
 				<li>Tetiana Makharynets</li>
