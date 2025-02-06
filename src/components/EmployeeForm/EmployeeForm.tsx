@@ -1,56 +1,57 @@
-//import React from 'react';
-import { useEmployees } from 'components/EmployeeContext/EmployeeContext';
-import { Employee } from 'components/EmployeeContext/types';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
-import { FormContainer, FormContent, FormFooter } from './styles';
-import { toast, ToastContainer } from 'react-toastify'; // Добавьте ToastContainer сюда
-import 'react-toastify/dist/ReactToastify.css';
+import { useEmployees } from "components/EmployeeContext/EmployeeContext";
+import { Employee } from "components/EmployeeContext/types";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
+import { FormContainer, FormContent, FormFooter } from "./styles";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function EmployeeForm() {
   const { addEmployee } = useEmployees();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
-      .required('Required field')
-      .min(2, 'Min 2 symbols')
-      .max(50, 'Max 50 symbols'),
-    surname: Yup.string().required('Required field').max(15, 'Max 15 symbols'),
+      .required("Required field")
+      .min(2, "Min 2 symbols")
+      .max(50, "Max 50 symbols"),
+    surname: Yup.string()
+      .required("Required field")
+      .max(15, "Max 15 symbols"),
     age: Yup.number()
-      .required('Required field')
-      .min(18, 'Min age 18')
-      .max(80, 'Max age 80')
-      .typeError('Type number'),
+      .required("Required field")
+      .min(18, "Min age 18")
+      .max(80, "Max age 80")
+      .typeError("Type number"),
     jobPosition: Yup.string()
-      .required('Required field')
-      .max(30, 'Max 30 symbols'),
+      .required("Required field")
+      .max(30, "Max 30 symbols"),
   });
 
-  const formik = useFormik({
+  const formik = useFormik<Employee>({
     initialValues: {
-      name: '',
-      surname: '',
-      age: 0,
-      jobPosition: '',
-    } as Employee,
+      name: "",
+      surname: "",
+      age: 0, // Начальное значение как число
+      jobPosition: "",
+    },
     validationSchema,
     validateOnChange: false,
-    onSubmit: (values: Employee, { resetForm }) => {
+    onSubmit: (values, { resetForm }) => {
       console.table(values);
 
-      // Добавить новые данные
+      // Добавить нового сотрудника
       addEmployee(values);
 
-      // Очистка формы
+      // Очистить форму
       resetForm();
 
       // Всплывающее сообщение
-      toast.success('Employee added successfully!', {
-        autoClose: 1000, // Устанавливаем время показа уведомления в 1 секунду
-        hideProgressBar: true, // Убираем прогресс-бар
-        position: "bottom-right", // Опускаем сообщение ниже
+      toast.success("Employee added successfully!", {
+        autoClose: 1000, // Сообщение исчезает через 1 секунду
+        hideProgressBar: true,
+        position: "bottom-right",
       });
     },
   });
@@ -66,6 +67,7 @@ function EmployeeForm() {
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.errors.name}
+          autoComplete="off"
         />
         <Input
           name="surname"
@@ -75,15 +77,20 @@ function EmployeeForm() {
           value={formik.values.surname}
           onChange={formik.handleChange}
           error={formik.errors.surname}
+          autoComplete="off"
         />
         <Input
           name="age"
           id="age_id"
           label="Age*"
           placeholder="Enter your age"
-          value={formik.values.age.toString()}
-          onChange={formik.handleChange}
+          value={formik.values.age === 0 ? "" : formik.values.age.toString()} // Преобразование в строку
+          onChange={(e) => {
+            const value = e.target.value;
+            formik.setFieldValue("age", value === "" ? 0 : Number(value)); // Очищаем "0", но сохраняем числа
+          }}
           error={formik.errors.age}
+          autoComplete="off"
         />
         <Input
           name="jobPosition"
@@ -93,13 +100,16 @@ function EmployeeForm() {
           value={formik.values.jobPosition}
           onChange={formik.handleChange}
           error={formik.errors.jobPosition}
+          autoComplete="off"
         />
       </FormContent>
       <FormFooter>
         <Button name="Create" type="submit" />
         <Button name="Reset" type="button" onClick={() => formik.resetForm()} /> {/* Кнопка сброса формы */}
       </FormFooter>
-      <ToastContainer position="bottom-right" /> {/* Контейнер для всплывающих сообщений */}
+
+      {/* Контейнер для всплывающих сообщений */}
+      <ToastContainer position="bottom-right" />
     </FormContainer>
   );
 }

@@ -10,6 +10,7 @@ export interface Employee {
 export interface EmployeeContextType {
 	employees: Employee[];
 	addEmployee: (employee: Employee) => void;
+	deleteEmployee: (employee: Employee) => void;
 }
 
 export interface EmployeeProviderProps {
