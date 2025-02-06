@@ -1,5 +1,4 @@
 export interface EmployeeCardValues {
-	id: string |number;
 	name: string;
 	surname: string;
 	age: number;
