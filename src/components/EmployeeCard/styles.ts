@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
 
 export const EmployeeCardContainer = styled.div`
-	/* display: grid;
-	grid-template-columns: repeat(2, 1fr); */
-	/* display: flex; */
 	background-color: #f9f9f9;
 	border: 2px solid #112233;
 	padding: 20px;

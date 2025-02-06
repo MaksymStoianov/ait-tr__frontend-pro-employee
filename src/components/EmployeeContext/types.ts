@@ -12,6 +12,7 @@ export interface EmployeeContextType {
 	employees: Employee[];
 	addEmployee: (employee: Employee) => void;
 	removeEmployee: (id: number | string) => void;
+	removeAllEmployees: () => void;
 }
 
 export interface EmployeeProviderProps {
