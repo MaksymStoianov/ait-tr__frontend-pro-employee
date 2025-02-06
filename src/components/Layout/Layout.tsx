@@ -1,3 +1,4 @@
+import ButtonIcon from "components/ButtonIcon/ButtonIcon";
 import { EmployeeProvider } from "components/EmployeeContext/EmployeeContext";
 import { useNavigate } from "react-router-dom";
 import { navLinks } from "./navLinks";
@@ -29,7 +30,20 @@ function Layout({ children }: LayoutProps) {
 	return (
 		<LayoutComponent>
 			<Header>
-				<LogoContainer onClick={() => navigate("/")}>Home</LogoContainer>
+				<div
+					style={{
+						display: "flex",
+						alignItems: "center",
+						gap: "15px",
+					}}
+				>
+					<ButtonIcon
+						size="18"
+						icon="arrow_back_ios"
+						onClick={() => navigate(-1)}
+					/>
+					<LogoContainer onClick={() => navigate("/")}>Home</LogoContainer>
+				</div>
 				<NavContainer>{navLinksEl}</NavContainer>
 			</Header>
 			<EmployeeProvider>
