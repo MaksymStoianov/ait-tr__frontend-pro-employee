@@ -8,6 +8,7 @@ import Input from '../Input/Input';
 import { FormContainer, FormContent, FormFooter } from './styles';
 import { toast, ToastContainer } from 'react-toastify'; // Добавьте ToastContainer сюда
 import 'react-toastify/dist/ReactToastify.css';
+import { v4 as uuidv4 } from 'uuid';
 
 function EmployeeForm() {
   const { addEmployee } = useEmployees();
@@ -41,7 +42,9 @@ function EmployeeForm() {
       console.table(values);
 
       // Добавить новые данные
-      addEmployee(values);
+      const newEmployee = { ...values, id: uuidv4() };
+      addEmployee(newEmployee);
+      // addEmployee(values);
 
       // Очистка формы
       resetForm();
