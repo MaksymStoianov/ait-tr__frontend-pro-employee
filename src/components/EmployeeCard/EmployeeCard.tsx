@@ -8,7 +8,7 @@ function EmployeeCard(props: Employee) {
   const { deleteEmployee } = useEmployees(); // Получаем функцию удаления сотрудника
 
   const handleDelete = () => {
-    deleteEmployee(props); // Вызываем функцию удаления сотрудника
+    deleteEmployee(props.id); // Вызываем функцию удаления сотрудника
   };
 
   return (

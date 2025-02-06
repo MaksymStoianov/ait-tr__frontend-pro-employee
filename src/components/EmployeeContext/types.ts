@@ -9,11 +9,12 @@ export interface Employee {
 }
 
 export interface EmployeeContextType {
-	employees: Employee[];
-	addEmployee: (employee: Employee) => void;
-	deleteEmployee: (employee: Employee) => void;
-	deleteAllEmployees: () => void;
+    employees: Employee[];
+    addEmployee: (employee: Employee) => void;
+    deleteEmployee: (id: string | number) => void; //  Теперь принимает id
+    deleteAllEmployees: () => void;
 }
+
 
 export interface EmployeeProviderProps {
 	children: ReactNode;
